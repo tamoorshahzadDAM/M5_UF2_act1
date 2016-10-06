@@ -4,6 +4,8 @@
  */
 package myutils;
 
+import java.util.Calendar;
+
 /**
  *
  * @author Tamoor Classe de funcions pròpies utils.
@@ -25,6 +27,12 @@ public class MyUtils {
         return cadenainvertida;
     }
 
+    private boolean anytraspas(int any){
+        
+        return (any % 4 == 0 && (any % 100 != 0 || any % 400 == 0));
+        
+    }
+    
     /**
      *
      * @param day int dia del naixement
@@ -35,7 +43,26 @@ public class MyUtils {
      *
      */
     public static int edat(int day, int month, int year) {
+        
         int resultat = 0;
+        
+        if (month >=1 && month <=12){
+            
+            if (month==4 || month==6 || month==9 || month==11 ){
+                totalDiesMes = 30;
+                
+            } else if (month==2){
+                totalDiesMes = 28;
+                
+                if (anytraspas()){
+                    totalDiesMes=29;
+                }
+            }
+            
+        }else {
+            System.out.println("Mes invalido!!!!!11");
+        }
+        
         return resultat;
     }
 
