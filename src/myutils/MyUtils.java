@@ -16,8 +16,13 @@ public class MyUtils {
      * @return cadena invertida (null per cadenes nulls).
      */
     public static String inverteix(String cadena) {
-        String resultat = "";
-        return resultat;
+        String cadenainvertida = "";
+        
+        for (int i = cadena.length() -1; i >= 0; i--) {
+            cadenainvertida = cadenainvertida + cadena.charAt(i);
+        }
+        
+        return cadenainvertida;
     }
 
     /**
