@@ -5,6 +5,7 @@
  */
 package myutils;
 
+import java.util.Calendar;
 import java.util.Scanner;
 
 /**
@@ -25,8 +26,9 @@ public class NewMain {
 //        
 //        System.out.println(MyUtils.inverteix(cadena));
 
-
-
+            Calendar calendar = Calendar.getInstance();
+            System.out.println(MyUtils.edat(01, 06, 1995));
+            
     }
 
 }

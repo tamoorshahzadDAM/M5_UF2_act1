@@ -19,20 +19,14 @@ public class MyUtils {
      */
     public static String inverteix(String cadena) {
         String cadenainvertida = "";
-        
-        for (int i = cadena.length() -1; i >= 0; i--) {
+
+        for (int i = cadena.length() - 1; i >= 0; i--) {
             cadenainvertida = cadenainvertida + cadena.charAt(i);
         }
-        
+
         return cadenainvertida;
     }
 
-    private boolean anytraspas(int any){
-        
-        return (any % 4 == 0 && (any % 100 != 0 || any % 400 == 0));
-        
-    }
-    
     /**
      *
      * @param day int dia del naixement
@@ -44,25 +38,58 @@ public class MyUtils {
      */
     public static int edat(int day, int month, int year) {
         
-        int resultat = 0;
         
-        if (month >=1 && month <=12){
-            
-            if (month==4 || month==6 || month==9 || month==11 ){
-                totalDiesMes = 30;
-                
-            } else if (month==2){
-                totalDiesMes = 28;
-                
-                if (anytraspas()){
-                    totalDiesMes=29;
-                }
-            }
-            
-        }else {
-            System.out.println("Mes invalido!!!!!11");
-        }
-        
+//        Calendar calendar = Calendar.getInstance();
+//        int resultat = 0;
+//
+//        if (year < Calendar.YEAR) {
+//            if (month >= 1 && month <= 12) {
+//
+//                if (month == 4 || month == 6 || month == 9 || month == 11) {
+//                    int totalDiesMes = 30;
+//
+//                } else if (month == 2) {
+//                    int totalDiesMes = 28;
+//
+//                    if ((year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))) {
+//                        totalDiesMes = 29;
+//                    }
+//                }
+//                
+//                int difyear = calendar.get(Calendar.YEAR) - year;
+//                int difmonth = calendar.get(Calendar.MONTH) - month;
+//                int difday = calendar.get(Calendar.DAY_OF_MONTH) - day;
+//
+//            } else {
+//                System.out.println("Mes invalido!!!!!");
+//            }
+//        } else {
+//            System.out.println("Any Invalido!!");
+//
+//        }
+
+
+
+
+//            Calendar calendar = Calendar.getInstance();
+//           
+//
+//        
+//        int difyear = calendar.get(Calendar.YEAR) - year;
+//        int difmonth = calendar.get(Calendar.MONTH) - month;
+//        int difday = calendar.get(Calendar.DAY_OF_MONTH) - day;
+//
+//        int anyseg = difyear.
+//            
+//        }
+//        
+//        if (difyear > 150) {
+//            resultat = -1;
+//
+//        } else {
+//            System.out.println("error");
+//        }
+
         return resultat;
     }
 
