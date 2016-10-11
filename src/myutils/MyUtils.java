@@ -5,6 +5,7 @@
 package myutils;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -36,61 +37,60 @@ public class MyUtils {
      * impossibles retorna -2
      *
      */
+ 
     public static int edat(int day, int month, int year) {
-        
-        
-//        Calendar calendar = Calendar.getInstance();
-//        int resultat = 0;
-//
-//        if (year < Calendar.YEAR) {
-//            if (month >= 1 && month <= 12) {
-//
-//                if (month == 4 || month == 6 || month == 9 || month == 11) {
-//                    int totalDiesMes = 30;
-//
-//                } else if (month == 2) {
-//                    int totalDiesMes = 28;
-//
-//                    if ((year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))) {
-//                        totalDiesMes = 29;
-//                    }
-//                }
-//                
-//                int difyear = calendar.get(Calendar.YEAR) - year;
-//                int difmonth = calendar.get(Calendar.MONTH) - month;
-//                int difday = calendar.get(Calendar.DAY_OF_MONTH) - day;
-//
-//            } else {
-//                System.out.println("Mes invalido!!!!!");
-//            }
-//        } else {
-//            System.out.println("Any Invalido!!");
-//
-//        }
 
+        Calendar calendar = new GregorianCalendar();
+        long diaactual = calendar.getTimeInMillis();
+        long resultat = 0;
 
+        if (year <= calendar.get(Calendar.YEAR)) {
+            if (calendar.get(Calendar.YEAR) - year < 150) {
+                if (month >= 1 && month <= 12) {
 
+                    if (month == 4 || month == 6 || month == 9 || month == 11) {
+                        if (day > 0 && day <= 30) {
+                            Calendar calendar1 = new GregorianCalendar(year, month-1, day); 
+                            long fechaNacimiento = calendar1.getTimeInMillis();
+                            resultat = diaactual - fechaNacimiento;
 
-//            Calendar calendar = Calendar.getInstance();
-//           
-//
-//        
-//        int difyear = calendar.get(Calendar.YEAR) - year;
-//        int difmonth = calendar.get(Calendar.MONTH) - month;
-//        int difday = calendar.get(Calendar.DAY_OF_MONTH) - day;
-//
-//        int anyseg = difyear.
-//            
-//        }
-//        
-//        if (difyear > 150) {
-//            resultat = -1;
-//
-//        } else {
-//            System.out.println("error");
-//        }
+                        } else {
+                            System.out.println("-2");
 
-        return resultat;
+                        }
+
+                    } else if (month == 2) {
+                        if (day > 0 && day <= 28) {
+                            Calendar calendar1 = new GregorianCalendar(year, month-1, day); 
+                            long fechaNacimiento = calendar1.getTimeInMillis();
+                            resultat = diaactual - fechaNacimiento;
+                        } else {
+                            System.out.println("-2");
+                        }
+
+                    } else if (day > 0 && day <= 31) {
+                            Calendar calendar1 = new GregorianCalendar(year, month-1, day); 
+                        long fechaNacimiento = calendar1.getTimeInMillis();
+                        resultat = diaactual - fechaNacimiento;
+                    } else {
+                        System.out.println("-2");
+                    }
+
+                } else {
+                    System.out.println("Mes invalido!!!!!");
+                }
+            } else {
+                System.out.println("-1");
+
+            }
+        } else {
+            System.out.println("Any Invalido!!");
+
+        }
+        long dies = 3600 * 24 * 1000;
+        long resultado = resultat / dies;
+        long resultatFinal = resultado / 365;
+        return (int)resultatFinal;
     }
 
     /**
@@ -99,13 +99,18 @@ public class MyUtils {
      * @return retorna el factorial d'un número. Si el nombre es negatiu retorna
      * -1.
      */
-    public static double factorial(double numero) {
+    public static double factorial(int numero) {
 
         if (numero == 0) {
             return 1;
+
+        } else if (numero < 0) {
+            return -1;
+
         } else {
             double resultat = numero * factorial(numero - 1);
             return resultat;
         }
+
     }
 }
