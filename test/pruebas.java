@@ -38,7 +38,7 @@ public class pruebas {
     @After
     public void tearDown() {
     }
-/*
+
     //Prueba de invertir
     @Test
     public final void  testInverteixString() {
@@ -77,7 +77,7 @@ public class pruebas {
     
         assertEquals(-2, MyUtils.edat(01, 15, 1995),0);
     }
- */   
+   
     
     //prueba de clase factorial.
     @Test
