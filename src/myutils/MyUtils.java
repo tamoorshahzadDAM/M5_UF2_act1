@@ -4,6 +4,7 @@
  */
 package myutils;
 
+import static java.lang.Character.isDigit;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -11,7 +12,7 @@ import java.util.GregorianCalendar;
  *
  * @author Tamoor Classe de funcions pròpies utils.
  */
-public class MyUtils {
+public class MyUtils extends Exception {
 
     /**
      *
@@ -55,8 +56,7 @@ public class MyUtils {
                             resultat = diaactual - fechaNacimiento;
 
                         } else {
-                            System.out.println("-2");
-
+                            return -2;
                         }
 
                     } else if (month == 2) {
@@ -65,7 +65,7 @@ public class MyUtils {
                             long fechaNacimiento = calendar1.getTimeInMillis();
                             resultat = diaactual - fechaNacimiento;
                         } else {
-                            System.out.println("-2");
+                            return -2;
                         }
 
                     } else if (day > 0 && day <= 31) {
@@ -73,19 +73,19 @@ public class MyUtils {
                         long fechaNacimiento = calendar1.getTimeInMillis();
                         resultat = diaactual - fechaNacimiento;
                     } else {
-                        System.out.println("-2");
+                        return -2;
                     }
 
                 } else {
-                    System.out.println("Mes invalido!!!!!");
+                    return -2;
                 }
             } else {
-                System.out.println("-1");
+               return -1;
 
             }
         } else {
             System.out.println("Any Invalido!!");
-
+            System.exit(0);
         }
         long dies = 3600 * 24 * 1000;
         long resultado = resultat / dies;
@@ -101,10 +101,11 @@ public class MyUtils {
      */
     public static double factorial(int numero) {
 
+        
         if (numero == 0) {
             return 1;
 
-        } else if (numero < 0) {
+        } else if (numero < 0 || numero > 999)  {
             return -1;
 
         } else {
@@ -113,4 +114,5 @@ public class MyUtils {
         }
 
     }
+    
 }
